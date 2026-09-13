@@ -8,8 +8,7 @@ func greet():
 var score := 5
 
 func add_score(points):
-	score += 5
-	return score
+	return score + points
 
 
 #Write a function is_alive(hp) that takes an integer hp and returns true if hp is greater than 0, and false otherwise.
