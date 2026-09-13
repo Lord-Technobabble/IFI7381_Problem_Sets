@@ -18,7 +18,7 @@ func A(x: int, y: int) -> int:
 
 func f(n: int) -> int:
 	return A(0, n)
-
+# For input n f(n) return 2 * n
 
 func g(n: int) -> int:
 	return A(1, n)
@@ -46,3 +46,34 @@ the numbers at the edge of the triangle are all 1, and each
 number inside the triangle is the sum of the two numbers
 above it. Write a procedure that computes elements of
 Pascal’s triangle by means of a recursive process'''
+
+func pascal_creator(size: int):
+	if size == 0:
+		return []
+		
+	if size == 1:
+		return [[1]]
+
+	var layers = pascal_creator(size - 1)
+	
+	var previous_layer = layers[-1]
+	var previous_number = 0
+	var current_layer = []
+	
+	for i in range(previous_layer.size()):
+		var current_number = previous_layer[i]
+		var num_sum = previous_number + current_number
+		previous_number = current_number
+		current_layer.append(num_sum)
+	
+	current_layer.append(1)
+	layers.append(current_layer)
+	
+	return layers
+
+func _ready():
+	if true: #set false to test pascal creator
+		return
+	for i in range(7):
+		print("--------------------------")
+		print(pascal_creator(i))

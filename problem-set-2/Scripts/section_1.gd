@@ -24,9 +24,11 @@ enemy.speed += 10
 #endregion
 
 #Declare a variable named player_name and assign it a name of your choice as value
-
+var player_name = "Testy McTestface"
 #Declare a variable max_health with an explicit type annotation of int, set to 100.
+var max_health: int = 100
 
 #Declare a variable is_alive as a boolean, set to true.
-
+var is_alive: bool = true
 #What is the difference between var speed = 5 and const SPEED = 5? When would you use each in a game? Answer as a comment
+#var can be changed during runtime, const cannot be changed after initialization
