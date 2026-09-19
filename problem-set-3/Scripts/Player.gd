@@ -47,6 +47,8 @@ a = a - 3
 a = 5
 a = a + a
 
+Result: a == 10
+
 4.2) What is the final value of a in this example?
 var a = 3
 var b = 2
@@ -55,7 +57,24 @@ var b = 0
 var a = c - b
 var b = 10
 
+Result: a == 5
 '''
+var health = 100
+const max_health = 100
+var speed = 50
+var player_name = "Testy McTestface II"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	print("%s | HP: %s/%s | SPEED %s" % [player_name, health, max_health, speed])
+	take_damage(15)
+	take_damage(15)
+	heal()
+	
+func take_damage(amount):
+	health -= amount
+	print("%s took %s dmg, %s remains. OUCH!" % [player_name, amount, health])
+	
+func heal():
+	while health < max_health:
+		health = min(max_health, health + 7)
+		print("Healed to %s" % health)
